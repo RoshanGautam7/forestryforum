@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNG National Forestry ID Card - Final</title>
+    <style>
+        /* --- General Styling for the Page and Card Container --- */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .id-card {
+            width: 500px; 
+            height: 300px; 
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            border-radius: 15px;
+        }
+
+        /* The static header text/logo content was removed from HTML as it's in the background. */
+        
+        /* --- Main Content: Details and Photo Layout --- */
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: absolute;
+            top: 150px; /* Position the main content below the header area */
+            left: 25px;
+            right: 25px;
+            z-index: 2;
+        }
+
+        /* --- Details Text Styling --- */
+        .details-container {
+            flex: 1; 
+            padding-right: 20px;
+            color: #1A522A; /* Dark Green for labels */
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .detail-line {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .placeholder {
+            font-weight: normal;
+            font-style: bold;
+            color: #1A522A; /* Dark Green for labels */
+            margin-left: 5px;
+            font-size: 12px;
+        }
+
+        /* --- Photo Styling --- */
+        .photo-container {
+            width: 130px;
+            height: 160px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: relative; 
+            /* *** UPDATED MARGIN-TOP AS REQUESTED *** */
+            margin-top: -55px; 
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="id-card">
+        <!-- Background image as img tag for better PDF compatibility -->
+        <img src="{{background_image}}" alt="Background" class="background-image" />
+
+        <div class="main-content">
+            
+            <div class="details-container">
+                <div class="detail-line">Name: <span class="placeholder">{{full_name}}</span></div>
+                <div class="detail-line">Company: <span class="placeholder">{{company_name}}</span></div>
+                <div class="detail-line">Email address: <span class="placeholder">{{email}}</span></div>
+                <div class="detail-line">ID No: <span class="placeholder">{{id}}</span></div>
+            </div>
+
+            <div class="photo-container">
+                <img src="{{profile_photo}}" alt="Profile Photo" class="photo" />
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
